@@ -1,0 +1,16 @@
+[
+{
+  "modid": "autoutils",
+  "name": "AutoUtilities",
+  "description": "A utility mod for hypixel that says glhf before every game and gg after every game",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/dubfib/autoutils",
+  "updateUrl": "https://github.com/dubfib/autoutils",
+  "authorList": ["dubfib"],
+  "credits": "Forge & FML",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
