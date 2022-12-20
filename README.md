@@ -17,3 +17,9 @@ You can find the download links on [github](https://github.com/dubfib/autoutils/
 2. Go the the mods tab on the left
 3. Click download mods on the right
 4. Search up autoutils through modrinth and install
+
+# Issues/Bugs
+If you find any issues or bugs please report them [here](https://github.com/dubfib/autoutils/issues)
+
+# Contributing
+Contributing is allowed and I am fine with it you can contribute changes [here](https://github.com/dubfib/autoutils/pulls)
