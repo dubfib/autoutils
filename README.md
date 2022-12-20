@@ -6,3 +6,14 @@ The utility mod will wait for hypixel to send a message that contains that the g
 
 # How to install?
 You can find the download links on [github](https://github.com/dubfib/autoutils/releases) or [modrinth](https://modrinth.com/mod/autoutils).
+
+## Forge on Minecraft Launcher
+1. Install the mod from [github](https://github.com/dubfib/autoutils/releases)
+2. Find the latest release and install the autoutil.jar
+3. After the autoutil.jar is done downloading put it in your minecraft folder
+
+## MultiMC/PolyMC/Prism Launcher
+1. Edit your forge 1.8.9 instance
+2. Go the the mods tab on the left
+3. Click download mods on the right
+4. Search up autoutils through modrinth and install
