@@ -1,6 +1,9 @@
 # autoutils
 A utility mod for hypixel that says glhf before every game and gg after every game.
 
+# Notice
+In some games hypixel doesn't allow you to send messages in chat like duels, so then autogl will not work. Although games like skywars and bedwars are tested and do 100% work.
+
 # How it works?
 The utility mod will wait for hypixel to send a message that contains that the game will start in 2 seconds then the mod will make the player say "glhf" in all chat. After the game is over the utility mod will check for the message Reward Summary which appears after every single game on hypixel then the mod will make the player say "gg" in all chat.
 
