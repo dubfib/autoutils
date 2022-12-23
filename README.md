@@ -1,5 +1,5 @@
 # autoutils
-A utility mod for hypixel that says glhf before every game and gg after every game.
+A utility mod for hypixel that says glhf before every game and gg after every game. (this mod does not require essential/modcore)
 
 # Notice
 In some games hypixel doesn't allow you to send messages in chat like duels, so then autogl will not work. Although games like skywars and bedwars are tested and do 100% work.
@@ -10,7 +10,7 @@ The utility mod will wait for hypixel to send a message that contains that the g
 # How to install?
 You can find the jar files on [modrinth](https://modrinth.com/mod/autoutils).
 
-## Forge on Minecraft Launcher
+## Forge through Minecraft Launcher
 1. Install the mod from [modrinth](https://modrinth.com/mod/autoutils)
 2. Find the latest release and install the autoutil.jar
 3. After the autoutil.jar is done downloading put it in your minecraft folder
@@ -20,6 +20,11 @@ You can find the jar files on [modrinth](https://modrinth.com/mod/autoutils).
 2. Go the the mods tab on the left
 3. Click download mods on the right
 4. Search up autoutils through modrinth and install
+
+## Other
+1. Install the mod from [modrinth](https://modrinth.com/mod/autoutils)
+2. Find the latest release and install autoutil.jar
+3. Put the jar file in the place where you launcher gets its mods
 
 # Issues/Bugs
 If you find any issues or bugs please report them [here](https://github.com/dubfib/autoutils/issues)
