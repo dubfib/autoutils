@@ -8,10 +8,10 @@ In some games hypixel doesn't allow you to send messages in chat like duels, so 
 The utility mod will wait for hypixel to send a message that contains that the game will start in 2 seconds then the mod will make the player say "glhf" in all chat. After the game is over the utility mod will check for the message Reward Summary which appears after every single game on hypixel then the mod will make the player say "gg" in all chat.
 
 # How to install?
-You can find the download links on [github](https://github.com/dubfib/autoutils/releases) or [modrinth](https://modrinth.com/mod/autoutils).
+You can find the download links on [modrinth](https://modrinth.com/mod/autoutils).
 
 ## Forge on Minecraft Launcher
-1. Install the mod from [github](https://github.com/dubfib/autoutils/releases)
+1. Install the mod from [modrinth](https://modrinth.com/mod/autoutils)
 2. Find the latest release and install the autoutil.jar
 3. After the autoutil.jar is done downloading put it in your minecraft folder
 
