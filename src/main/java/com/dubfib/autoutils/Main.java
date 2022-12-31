@@ -23,7 +23,7 @@ public class Main {
     
 	@SubscribeEvent
 	public void onChat(ClientChatReceivedEvent event) {
-            new ChatEvent().AutoGL(event.message.getUnformattedText());
+		new ChatEvent().AutoGL(event.message.getUnformattedText());
 	    new ChatEvent().AutoGG(event.message.getUnformattedText());
 	};
 };
