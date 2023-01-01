@@ -10,13 +10,14 @@ public class ChatEvent {
 	public static HashMap<String, String> goodGameMessages = new HashMap<String, String>();
 
 	public static void AutoGL(String message) {
-		if (goodLuckMessages.containsKey(message)) {
+		if (goodLuckMessages.containsKey(message.trim())) {
 			Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac " + goodLuckMessages.get(message));
 		}
 	};
 
 	public static void AutoGG(String message) {
-		if (goodGameMessages.containsKey(message)) {
+		System.out.println("AutoGG called with message: " + message);
+		if (goodGameMessages.containsKey(message.trim())) {
 			Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac " + goodGameMessages.get(message));
 		}
 	};
