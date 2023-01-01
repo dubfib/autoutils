@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.dubfib.autoutils.config.Config;
 import com.dubfib.autoutils.events.ChatEvent;
@@ -22,6 +24,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(name = Config.NAME, modid = Config.ID, version = Config.VERSION)
 public class Main {
+    public static Pattern textFormattingPattern = Pattern.compile("§[0-9a-fk-or]");
+
     @EventHandler
     public void init(FMLInitializationEvent event) {
         // Read the languages file as a stream
@@ -67,30 +71,11 @@ public class Main {
         ChatEvent.AutoGG(getPlainText(event.message));
     };
 
-    private String getPlainText(IChatComponent component) {
-        String baseString = component.getUnformattedTextForChat();
-        StringBuilder stringBuilder = new StringBuilder();
-        char[] chars = baseString.toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            char c = chars[i];
-            // If this is not the last character in the string
-            if (i < chars.length - 1) {
-                // If this is a formatting code
-                // Or a double space
-                if ((c == '§' && "0123456789abcdefklmnor".indexOf(chars[i + 1]) > -1)
-                        || c == ' ' && chars[i + 1] == ' ') {
-                    // This skips the current character and the next character (the formatting code)
-                    i++;
-                    continue;
-                }
-            } else if (c == ' ') {
-                // If the last character is a space, skip it
-                continue;
-            }
-
-            stringBuilder.append(c);
-        }
-
-        return stringBuilder.toString();
+    private String getPlainText(IChatComponent message) {
+        String baseString = message.getUnformattedText();
+        Matcher m = textFormattingPattern.matcher(baseString);
+        baseString = m.replaceAll("");
+        baseString = baseString.replace("  ", "");
+        return baseString;
     }
 };

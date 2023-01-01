@@ -16,7 +16,6 @@ public class ChatEvent {
 	};
 
 	public static void AutoGG(String message) {
-		System.out.println("AutoGG called with message: " + message);
 		if (goodGameMessages.containsKey(message.trim())) {
 			Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac " + goodGameMessages.get(message));
 		}
