@@ -3,30 +3,21 @@ package com.dubfib.autoutils.events;
 import java.util.HashMap;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityPlayerSP;
 
 public class ChatEvent {
-	public void AutoGL(String message) {
-		HashMap<String, String> messages = new HashMap<String, String>();
-		messages.put("The game starts in 2 seconds", "glhf");
-		messages.put("Th' voyage begins in 2 seconds", "glhf");
-		
-		for (String i: messages.keySet()) {
-			if (message.contains(i)) {
-				Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac " + messages.get(i));
-			};
-		};
+	// These hashmaps are populated on startup by the init() method in Main.java
+	public static HashMap<String, String> goodLuckMessages = new HashMap<String, String>();
+	public static HashMap<String, String> goodGameMessages = new HashMap<String, String>();
+
+	public static void AutoGL(String message) {
+		if (goodLuckMessages.containsKey(message)) {
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac " + goodLuckMessages.get(message));
+		}
 	};
-	
-	public void AutoGG(String message) {
-		HashMap<String, String> messages = new HashMap<String, String>();
-		messages.put("Reward Summary", "gg");
-		messages.put("Treasure Summary", "gg");
-		
-		for (String i: messages.keySet()) {
-			if (message.contains(i)) {
-				Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac " + messages.get(i));
-			};
-		};
+
+	public static void AutoGG(String message) {
+		if (goodGameMessages.containsKey(message)) {
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac " + goodGameMessages.get(message));
+		}
 	};
 };
