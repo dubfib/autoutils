@@ -36,7 +36,7 @@ public class Main {
 
         // Add the translations to the HashMap
         for (HashMap<String, String> translation : config.translations) {
-            var keyCollection = translation.keySet().toArray();
+            Object[] keyCollection = translation.keySet().toArray();
             ChatEvent.goodLuckMessages.put((String) keyCollection[0], translation.get(keyCollection[0]));
             ChatEvent.goodLuckMessages.put((String) keyCollection[1], translation.get(keyCollection[1]));
         }
