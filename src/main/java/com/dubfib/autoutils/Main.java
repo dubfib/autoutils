@@ -3,9 +3,10 @@ package com.dubfib.autoutils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.apache.logging.log4j.LogManager;
 
 import com.dubfib.autoutils.config.Config;
 import com.dubfib.autoutils.events.ChatEvent;
@@ -43,8 +44,7 @@ public class Main {
         }
 
         // Parse the JSON using Gson
-        Gson gson = new Gson();
-        Config config = gson.fromJson(new InputStreamReader(stream), Config.class);
+        Config config = new Gson().fromJson(new InputStreamReader(stream), Config.class);
 
         // Ensure that the HashMaps are empty, if this method is ever (somehow)
         // called more than once.
@@ -52,14 +52,11 @@ public class Main {
         ChatEvent.goodLuckMessages.clear();
 
         // Add the translations to the HashMap
-        for (HashMap<String, String> translation : config.translations) {
-            Object[] keyCollection = translation.keySet().toArray();
-            ChatEvent.goodLuckMessages.put((String) keyCollection[0], translation.get(keyCollection[0]));
-            System.out.println("Added " + keyCollection[0] + " to the good luck messages");
+        ChatEvent.goodLuckMessages.addAll(config.goodLuckTranslations);
+        ChatEvent.goodGameMessages.addAll(config.goodGameTranslations);
 
-            ChatEvent.goodLuckMessages.put((String) keyCollection[1], translation.get(keyCollection[1]));
-            System.out.println("Added " + keyCollection[1] + " to the good game messages");
-        }
+        LogManager.getLogger(Config.NAME).info("Loaded " + ChatEvent.goodLuckMessages.size()
+                + " good luck messages and " + ChatEvent.goodGameMessages.size() + " good game messages");
 
         FMLCommonHandler.instance().bus().register(this);
         MinecraftForge.EVENT_BUS.register(this);
@@ -71,6 +68,8 @@ public class Main {
         ChatEvent.AutoGG(getPlainText(event.message));
     };
 
+    // Use Regex to remove all of the text formatting codes,
+    // leaving only the plaintext.
     private String getPlainText(IChatComponent message) {
         String baseString = message.getUnformattedText();
         Matcher m = textFormattingPattern.matcher(baseString);

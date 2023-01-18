@@ -1,23 +1,24 @@
 package com.dubfib.autoutils.events;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 import net.minecraft.client.Minecraft;
 
 public class ChatEvent {
-	// These hashmaps are populated on startup by the init() method in Main.java
-	public static HashMap<String, String> goodLuckMessages = new HashMap<String, String>();
-	public static HashMap<String, String> goodGameMessages = new HashMap<String, String>();
+	// These lists are populated from the languages.json file,
+	// which is done on startup.
+	public static ArrayList<String> goodLuckMessages = new ArrayList<String>();
+	public static ArrayList<String> goodGameMessages = new ArrayList<String>();
 
 	public static void AutoGL(String message) {
-		if (goodLuckMessages.containsKey(message.trim())) {
-			Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac " + goodLuckMessages.get(message));
+		if (goodLuckMessages.contains(message)) {
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac glhf");
 		}
 	};
 
 	public static void AutoGG(String message) {
-		if (goodGameMessages.containsKey(message.trim())) {
-			Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac " + goodGameMessages.get(message));
+		if (goodGameMessages.contains(message)) {
+			Minecraft.getMinecraft().thePlayer.sendChatMessage("/ac gg");
 		}
 	};
 };
